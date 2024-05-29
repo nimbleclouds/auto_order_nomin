@@ -290,6 +290,7 @@ if bt:
     lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'МЛ алдагдлын дүн']]
 
     st.write("Зөрүү")
+    st.write(lossamt.squeeze())
     bar_loss_err = generate_bar_chart(lossamt.squeeze(), "")
     st_pyecharts(bar_loss_err)
     
