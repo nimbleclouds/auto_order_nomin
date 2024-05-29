@@ -309,7 +309,7 @@ if bt:
                                                    formatter=opts.TooltipOpts(formatter='{b}: {c}')),
                         legend_opts=opts.LegendOpts(is_show=False))
         )
-        st_pyecharts(bar)
+    st_pyecharts(bar)
     
 
     st.write("Зөрүү")
