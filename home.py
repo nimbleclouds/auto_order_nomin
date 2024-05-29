@@ -11,25 +11,25 @@ import pyecharts.options as opts
 from streamlit_echarts import st_pyecharts
 from pyecharts.charts import Line, Bar, Scatter, Boxplot
 
-# # def check_password():
-# #     def password_entered():
-# #         if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
-# #             st.session_state["password_correct"] = True
-# #             del st.session_state["password"]
-# #         else:
-# #             st.session_state["password_correct"] = False
+def check_password():
+    def password_entered():
+        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]
+        else:
+            st.session_state["password_correct"] = False
 
-# #     # Return True if the password is validated.
-# #     if st.session_state.get("password_correct", False):
-# #         return True
+    # Return True if the password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
 
-# #     # Show input for password.
-# #     st.text_input(
-# #         "Password", type="password", on_change=password_entered, key="password"
-# #     )
-# #     if "password_correct" in st.session_state:
-# #         st.error("Нууц үг буруу байна")
-# #     return False
+    # Show input for password.
+    st.text_input(
+        "Password", type="password", on_change=password_entered, key="password"
+    )
+    if "password_correct" in st.session_state:
+        st.error("Нууц үг буруу байна")
+    return False
 
 
 # if not check_password():
