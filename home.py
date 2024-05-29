@@ -34,7 +34,7 @@ from pyecharts.charts import Line, Bar, Scatter, Boxplot
 
 # if not check_password():
 #     st.stop()
-df = pd.read_csv('result_df.csv')
+df = pd.read_csv('result_df2.csv')
 item_info = pd.read_csv('df1.csv')
 df = df.drop(columns=df.columns[0])
 df = df[['date','item_name','base_price','real_qty','ml_preds','S0','Q_auto','ML_auto','abs_err_Q','abs_err_ML']]
