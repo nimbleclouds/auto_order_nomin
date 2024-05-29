@@ -32,8 +32,8 @@ def check_password():
     return False
 
 
-# if not check_password():
-#     st.stop()
+if not check_password():
+    st.stop()
 df = pd.read_csv('result_df2.csv')
 item_info = pd.read_csv('df1.csv')
 df = df.drop(columns=df.columns[0])
