@@ -283,8 +283,8 @@ if bt:
     
     st.write('S0 хувьсагчийн бодит дүнтэй харьцуулсан зөрүү')
     #'mae_auto','mae_ml'
-    lossmetrics = df[df.name==item_choices].rename(columns={'mae_auto':'Автомат захиалгын алдагдлын дүн',
-                                                                  'mae_ml':'МЛ алдагдлын дүн'})
+    lossmetrics = df[df.name==item_choices].rename(columns={'abs_err_Q':'Автомат захиалгын алдагдлын дүн',
+                                                                  'abs_err_ML':'МЛ алдагдлын дүн'})
     lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'Загварын алдагдлын дүн']]
 
     st.write("Зөрүү")
