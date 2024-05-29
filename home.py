@@ -56,7 +56,7 @@ result_df = result_df.merge(item_info, left_on='name',right_on='item_name',how='
 
 df_sum = item_info.groupby(['item_name']).sum(numeric_only=True).reset_index()
 df_avg = item_info.groupby(['item_name']).mean(numeric_only=True).reset_index()
-
+item_info.date = item_info.date.astype('datetime64[ns]')
 item_info["weekday"] = item_info['date'].dt.dayofweek
 item_info["weekend"] = item_info['date'].dt.dayofweek > 4
 weekday = item_info.groupby(['item_name','weekday']).median().reset_index().set_index('weekday')[['item_name','qty']]
