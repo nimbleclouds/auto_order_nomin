@@ -311,11 +311,7 @@ if bt:
     st_pyecharts(line5)
     
 
-    st.write("Зөрүү")
-    bar_loss_err = generate_bar_chart(lossamt.squeeze(), "")
-    st_pyecharts(bar_loss_err)
-    
-                                                                               
+    st.write("Зөрүү")                                                                       
     filtered_df = df[df.name==item_choices]                                                   
     filtered_df = df[df['qty'] != 0].copy()
     filtered_df['abs_perc_err_Q'] = abs((filtered_df['qty'] - filtered_df['auto_preds']) / (filtered_df['qty']))
