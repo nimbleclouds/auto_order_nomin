@@ -286,10 +286,9 @@ if bt:
     
     lossmetrics = df[df.name==item_choices].rename(columns={'mae_auto':'Автомат захиалгын алдагдлын дүн',
                                                                   'mae_ml':'МЛ алдагдлын дүн'}).set_index('ds')
-    st.write(lossmetrics)
     lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'МЛ алдагдлын дүн']]
-    bar = (
-        Bar()
+    line5 = (
+        Line()
         .add_xaxis(lossmetrics.index.tolist())  # Convert the index to a list
         .add_yaxis(series_name='Автомат захиалгын алдагдлын дүн', y_axis=lossmetrics['Автомат захиалгын алдагдлын дүн'].tolist(),
                label_opts=opts.LabelOpts(is_show=False),  # Remove data point symbols
@@ -309,7 +308,7 @@ if bt:
                                                    formatter=opts.TooltipOpts(formatter='{b}: {c}')),
                         legend_opts=opts.LegendOpts(is_show=False))
         )
-    st_pyecharts(bar)
+    st_pyecharts(line5)
     
 
     st.write("Зөрүү")
