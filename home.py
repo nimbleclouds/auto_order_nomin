@@ -316,7 +316,8 @@ if bt:
     filtered_df = df[df['qty'] != 0].copy()
     filtered_df['abs_perc_err_Q'] = abs((filtered_df['qty'] - filtered_df['auto_preds']) / (filtered_df['qty']))
     filtered_df['abs_perc_err_ML'] = abs((filtered_df['qty'] - filtered_df['ml_preds']) / (filtered_df['qty']))
-
+    mape_Q = filtered_df['abs_perc_err_Q'].mean()
+    mape_ML = filtered_df['abs_perc_err_ML'].mean()
     # Drop intermediate columns if needed
     filtered_df.drop(columns=['abs_perc_err_Q', 'abs_perc_err_ML'], inplace=True)
     st.write(f"MAPE (Автомат): {mape_Q*100}%")
