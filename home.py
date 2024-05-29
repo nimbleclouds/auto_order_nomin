@@ -285,7 +285,7 @@ if bt:
     #'mae_auto','mae_ml'
     lossmetrics = df[df.name==item_choices].rename(columns={'abs_err_Q':'Автомат захиалгын алдагдлын дүн',
                                                                   'abs_err_ML':'МЛ алдагдлын дүн'})
-    lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'Загварын алдагдлын дүн']]
+    lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'МЛ алдагдлын дүн']]
 
     st.write("Зөрүү")
     bar_loss_err = generate_bar_chart(lossamt.squeeze(), "")
