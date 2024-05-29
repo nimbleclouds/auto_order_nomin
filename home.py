@@ -285,12 +285,34 @@ if bt:
     #'mae_auto','mae_ml'
     
     lossmetrics = df[df.name==item_choices].rename(columns={'mae_auto':'Автомат захиалгын алдагдлын дүн',
-                                                                  'mae_ml':'МЛ алдагдлын дүн'})
+                                                                  'mae_ml':'МЛ алдагдлын дүн'}).set_index('ds')
     st.write(lossmetrics)
     lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'МЛ алдагдлын дүн']]
+     bar = (
+        Bar()
+        .add_xaxis(lossmetrics.index.tolist())  # Convert the index to a list
+        .add_yaxis(series_name='Автомат захиалгын алдагдлын дүн', y_axis=lossmetrics['Автомат захиалгын алдагдлын дүн'].tolist(),
+               label_opts=opts.LabelOpts(is_show=False),  # Remove data point symbols
+               itemstyle_opts=opts.ItemStyleOpts(color="blue"))
+        .add_yaxis(series_name='МЛ алдагдлын дүн', y_axis=lossmetrics['МЛ алдагдлын дүн'].tolist(),
+               label_opts=opts.LabelOpts(is_show=False),  # Remove data point symbols
+               itemstyle_opts=opts.ItemStyleOpts(color="red"))
+        .set_global_opts(xaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(color="white"),
+                                              axisline_opts=opts.AxisLineOpts(is_show=False),
+                                              axistick_opts=opts.AxisTickOpts(is_show=False),
+                                              splitline_opts=opts.SplitLineOpts(is_show=False)),
+                     yaxis_opts=opts.AxisOpts(axislabel_opts=opts.LabelOpts(color="white"),
+                                              axisline_opts=opts.AxisLineOpts(is_show=False),
+                                              axistick_opts=opts.AxisTickOpts(is_show=False),
+                                              splitline_opts=opts.SplitLineOpts(is_show=False)),
+                     tooltip_opts=opts.TooltipOpts(trigger="axis", axis_pointer_type="cross",
+                                                   formatter=opts.TooltipOpts(formatter='{b}: {c}')),
+                        legend_opts=opts.LegendOpts(is_show=False))
+        )
+        st_pyecharts(bar)
+    
 
     st.write("Зөрүү")
-    st.write(lossamt.squeeze())
     bar_loss_err = generate_bar_chart(lossamt.squeeze(), "")
     st_pyecharts(bar_loss_err)
     
