@@ -288,7 +288,7 @@ if bt:
                                                                   'mae_ml':'МЛ алдагдлын дүн'}).set_index('ds')
     st.write(lossmetrics)
     lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'МЛ алдагдлын дүн']]
-     bar = (
+    bar = (
         Bar()
         .add_xaxis(lossmetrics.index.tolist())  # Convert the index to a list
         .add_yaxis(series_name='Автомат захиалгын алдагдлын дүн', y_axis=lossmetrics['Автомат захиалгын алдагдлын дүн'].tolist(),
