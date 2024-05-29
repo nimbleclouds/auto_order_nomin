@@ -84,7 +84,7 @@ if bt:
     st.header(f"{item_choices}")
     st.divider()
     con = st.container()
-    temp_1_1 = result_df[result_df['name']==item_choices]
+    temp_1_1 = item_info[item_info['name']==item_choices]
     st.subheader('Барааны мэдээлэл')
     
     tab1_col1, tab1_col2 = st.columns(2)
