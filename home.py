@@ -238,7 +238,7 @@ if bt:
     
     #'qty','ml_preds','auto_preds','order_auto','order_ml','mae_auto','mae_ml'
     st.write('Борлуулалтын таамаглал буюу S0 хувьсагчийн харьцуулалт')
-    fcst_1 = result_df[result_df.item_name==item_choices].set_index('ds')[['qty','ml_preds','auto_preds']]
+    fcst_1 = result_df[result_df.name==item_choices].set_index('ds')[['qty','ml_preds','auto_preds']]
     fcst_1 = fcst_1.rename(columns={'auto_preds':'Автомат',
                     'qty':'Бодит',
                     'ml_preds':'МЛ'})
@@ -261,7 +261,7 @@ if bt:
     
     st.write('Захиалах тооны тооцоолол харьцуулалт')
         
-    fcst_2 = result_df[result_df.item_name==item_choices].set_index('ds')[['order_auto','order_ml']]
+    fcst_2 = result_df[result_df.name==item_choices].set_index('ds')[['order_auto','order_ml']]
     fcst_2 = fcst_2.rename(columns={'order_auto':'Автомат',
                     'order_ml':'МЛ'})
     forecast2 = (
@@ -282,7 +282,7 @@ if bt:
     
     st.write('S0 хувьсагчийн бодит дүнтэй харьцуулсан зөрүү')
     #'mae_auto','mae_ml'
-    lossmetrics = result_df[result_df.item_name==item_choices].rename(columns={'mae_auto':'Автомат захиалгын алдагдлын дүн',
+    lossmetrics = result_df[result_df.name==item_choices].rename(columns={'mae_auto':'Автомат захиалгын алдагдлын дүн',
                                                                   'mae_ml':'МЛ алдагдлын дүн'})
     lossamt = lossmetrics[['Автомат захиалгын алдагдлын дүн', 'Загварын алдагдлын дүн']]
 
@@ -291,7 +291,7 @@ if bt:
     st_pyecharts(bar_loss_err)
     
                                                                                
-    filtered_df = result_df[result_df.item_name==item_choices]                                                   
+    filtered_df = result_df[result_df.name==item_choices]                                                   
     filtered_df = result_df[result_df['qty'] != 0].copy()
     filtered_df['abs_perc_err_Q'] = abs((filtered_df['qty'] - filtered_df['auto_preds']) / (filtered_df['qty']))
     filtered_df['abs_perc_err_ML'] = abs((filtered_df['qty'] - filtered_df['ml_preds']) / (filtered_df['qty']))
