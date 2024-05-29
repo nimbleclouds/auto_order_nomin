@@ -298,5 +298,5 @@ if bt:
 
     # Drop intermediate columns if needed
     filtered_df.drop(columns=['abs_perc_err_Q', 'abs_perc_err_ML'], inplace=True)
-    st.write(f"MAPE (Автомат): {mape_Q*100}%"))
+    st.write(f"MAPE (Автомат): {mape_Q*100}%")
     st.write(f"MAPE (МЛ): {mape_ML*100}%")
