@@ -238,6 +238,7 @@ if bt:
     
     #'qty','ml_preds','auto_preds','order_auto','order_ml','mae_auto','mae_ml'
     st.write('Борлуулалтын таамаглал буюу S0 хувьсагчийн харьцуулалт')
+    st.write(result_df)
     fcst_1 = result_df[result_df.name==item_choices].set_index('ds')[['qty','ml_preds','auto_preds']]
     fcst_1 = fcst_1.rename(columns={'auto_preds':'Автомат',
                     'qty':'Бодит',
