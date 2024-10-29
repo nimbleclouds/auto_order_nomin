@@ -111,7 +111,7 @@ if bt:
     
     tab1_col3, tab1_col4 = st.columns(2)
     with tab1_col3:
-        st.subheader(f":white[Борлуулалтын тоо:]")
+        st.subheader(f"[Борлуулалтын тоо:]")
         temp_1_1 = item_info[item_info['item_name']==item_choices]
         temp_1_1 = temp_1_1.set_index('date')
         sales_monthly_1 = temp_1_1.resample('M').sum()
@@ -143,7 +143,7 @@ if bt:
         #fig.update_layout(xaxis_title='Огноо', yaxis_title='Тоо')
         #st.plotly_chart(fig, use_container_width=True)
         
-        st.subheader(f":white[7 хоногийн өдөр тус бүрийн дундаж борлуулалт:]")
+        st.subheader(f"[7 хоногийн өдөр тус бүрийн дундаж борлуулалт:]")
         temp_1_2 = weekday[weekday['item_name']==item_choices].copy()
         
         bar = (
@@ -172,7 +172,7 @@ if bt:
         #st.plotly_chart(fig,use_container_width=True)
         
     with tab1_col4:
-        st.subheader(f":white[Борлуулалтын тренд:]")
+        st.subheader(f"[Борлуулалтын тренд:]")
         # Assuming eda is your DataFrame and item_choices is a list of item names
         k_1 = item_info[item_info['item_name'] == item_choices]
         k_1 = k_1.set_index('date')
@@ -223,7 +223,7 @@ if bt:
         
         
         
-        st.subheader(f":white[Борлуулагдах тоо хэмжээний дистрибюшн:]")
+        st.subheader(f"[Борлуулагдах тоо хэмжээний дистрибюшн:]")
         f_1 = item_info[item_info['item_name']==item_choices]
         f_1 = f_1.groupby(['date','item_name']).sum('qty').reset_index()
         fig = px.violin(f_1['qty'])
